@@ -1,0 +1,17 @@
+
+sudo docker run -itd --privileged --name $firewall -h $firewall dvl-seguranca-servidor:1.0
+sudo docker network connect Rede_Alunos $firewall
+
+IpGateway=$(sudo docker exec $firewall route -n | grep UG | cut -f10 -d" ")
+
+sudo docker exec $firewall route add default gw 172.17.0.1
+sudo docker exec $firewall route del default gw $IpGateway
+sudo docker exec $firewall iptables -I POSTROUTING -t nat -o eth0 -j MASQUERADE
+
+ip=$(sudo docker exec $firewall ifconfig eth1 | grep "inet addr" | cut -f2 -d: | cut -f1 -d" ")
+
+sudo docker run -itd --privileged --name $cliente -h $cliente --net Rede_Alunos dvl-seguranca-cliente:1.0
+sudo docker exec $cliente route del default gw $IpGateway
+sudo docker exec $cliente route add default gw $ip
+
+

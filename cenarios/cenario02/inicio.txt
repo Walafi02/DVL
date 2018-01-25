@@ -1,0 +1,20 @@
+#!/bin/bash
+
+clear
+ip=2
+docker network create --driver bridge Rede_Alunos &> /dev/null
+
+function ScriptConecta {
+    sudo touch /home/$1/$2.sh
+	sudo chown www-data:www-data /home/$1/$2.sh
+	sudo chmod 705 /home/$1/$2.sh
+
+	echo "#!/bin/bash" > /home/$1/$2.sh
+	echo "clear" >> /home/$1/$2.sh
+	echo "sudo docker exec -it $3 login" >> /home/$1/$2.sh
+#	echo "sudo docker attach $3" >> /home/$1/$2.sh
+}
+
+Gateway=$1-$2-$3-"Gateway"
+Maquina01=$1-$2-$4-"Maquina01"
+Maquina02=$1-$2-$5-"Maquina02"

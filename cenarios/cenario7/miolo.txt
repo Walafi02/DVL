@@ -1,0 +1,8 @@
+
+sudo docker run -itd --privileged --name $Servidor -h $Servidor --net Rede1 dvl-bd-servidor:1.0
+sudo docker network connect Rede_Alunos $Servidor
+
+sudo docker run -itd --privileged --name $Cliente -h $Cliente --net Rede2 dvl-bd-cliente:1.0
+sudo docker network connect Rede_Alunos $Cliente
+
+

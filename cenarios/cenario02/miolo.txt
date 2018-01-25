@@ -1,0 +1,16 @@
+##Maquina Gateway##
+sudo docker run --privileged -itd -h $Gateway --name $Gateway dvl-ubuntu-completo:1.0 /bin/bash
+
+sudo docker network connect Rede_Alunos $Gateway
+
+sudo docker exec $Gateway ifconfig eth1 0
+
+
+##maquina 01##
+sudo docker run --privileged -itd -h $Maquina01 --name $Maquina01 --net Rede_Alunos dvl-ubuntu-completo:1.0 /bin/bash
+sudo docker exec $Maquina01 ifconfig eth0 0
+
+
+##maquina 02##
+sudo docker run --privileged -itd -h $Maquina02 --name $Maquina02 --net Rede_Alunos dvl-ubuntu-completo:1.0 /bin/bash
+sudo docker exec $Maquina02 ifconfig eth0 0

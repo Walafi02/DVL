@@ -1,0 +1,15 @@
+.opcoes {
+	padding-top: 0px;
+	text-align: right;
+}
+
+ul li {
+	display: inline;
+	margin-left: 10px;
+
+}
+
+.esquerda {
+	margin: 0px 0px 0px 100px;
+}
+

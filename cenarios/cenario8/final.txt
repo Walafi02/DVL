@@ -1,0 +1,6 @@
+ScriptConecta $2 Conecta$Firewall $Firewall 
+
+ScriptConecta $2 Conecta$Cliente01 $Cliente01 
+
+ScriptConecta $2 Conecta$Cliente02 $Cliente02 
+

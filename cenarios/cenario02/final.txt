@@ -1,0 +1,3 @@
+ScriptConecta $2 Conecta$Gateway $Gateway
+ScriptConecta $2 Conecta$Maquina01 $Maquina01
+ScriptConecta $2 Conecta$Maquina02 $Maquina02
