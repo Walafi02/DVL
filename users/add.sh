@@ -1,6 +1,6 @@
 #!/bin/bash
 
-addgroup alunos
+sudo addgroup alunos
 
 sudo useradd $1 -g alunos -s /bin/bash -m
 sudo echo $1:$1 > senhas.txt
