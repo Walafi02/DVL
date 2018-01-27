@@ -1,0 +1,5 @@
+
+sudo docker run -itd --privileged --name $cliente -h $cliente --net bridge dvl-ubuntu-base:1.0
+
+sudo docker run -itd --privileged --name $servidor -h $servidor dvl-ubuntu-base:1.0
+
