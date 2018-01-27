@@ -4,6 +4,7 @@
 		header("Location: login.html");
 		exit;
 	}
+
 ?>
 
 
@@ -23,6 +24,9 @@
 					<nav >
 						<ul>
 					    	<li><a href="home.php">Home</a></li>
+					    	<?php if ($_SESSION["login"] == "root" && $_SESSION["siape"] == "100000") { ?>
+					    		<li><a href="gerencia.php">Gerência</a></li>
+					    	<?php } ?>
 					    	<li><a href="logout.php"><?php echo $_SESSION['login'] ."(Logout)"; ?></a></li>
 							</ul>
 					</nav>

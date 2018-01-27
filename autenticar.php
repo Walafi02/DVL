@@ -15,6 +15,7 @@
 
 	$exibe = mysqli_fetch_assoc($sql);
 	$id = $exibe['id'];
+	$siape = $exibe['siape'];
 
 
 	mysqli_close($conexao);
@@ -34,6 +35,7 @@
 			if ($row > 0) {
 				session_start();
 				$_SESSION['id']=$id;
+				$_SESSION['siape']=$siape;
 				$_SESSION['login']=$_POST['login'];
 				$_SESSION['senha']=$_POST['senha'];
 
