@@ -28,7 +28,7 @@ $ sudo a2enmod rewrite
 $ sudo service apache2 restart
 ```
 
-Obs.: Neste processo será pedido ao usuário uma senha referente a senha de acesso do banco de dados MySql. É de extrema importância que a senha seja atualizada no arquivo conexao.php, no diretorio busca_banco, na variavel $pass.
+_**Obs.:** Neste processo será pedido ao usuário uma senha referente a senha de acesso do banco de dados MySql. É de extrema importância que a senha seja atualizada no arquivo conexao.php, no diretorio busca_banco, na variavel $pass._
 
 O proximo passo será alterar a pasta padrão do apache nos seguintes arquivos:
 - 1º Arquivo: apache2.conf, no diretorio /etc/apache2:
