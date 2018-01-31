@@ -3,8 +3,8 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: localhost
--- Tempo de geração: 30/11/2017 às 10:34
--- Versão do servidor: 5.7.20-0ubuntu0.16.04.1
+-- Tempo de geração: 30/01/2018 às 23:02
+-- Versão do servidor: 5.7.21-0ubuntu0.16.04.1
 -- Versão do PHP: 7.0.22-0ubuntu0.16.04.1
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
@@ -40,11 +40,14 @@ CREATE TABLE `cenarios` (
 --
 
 INSERT INTO `cenarios` (`id`, `nome_cenario`, `id_user`, `permissao`, `descricao`, `path`) VALUES
-(1, 'CenÃ¡rio 01', 1, 'pub', 'CenÃ¡rio simples para prÃ¡tica em uma mÃ¡quina', 'cenarios/cenario01'),
-(2, 'CenÃ¡rio 02', 1, 'pub', 'Esse cenÃ¡rio contem trÃªs mÃ¡quinas e objetivo Ã© configurar o encaminhamento de pacotes na maquina Gateway', 'cenarios/cenario02'),
-(7, 'Teste 01 - Banco de Dados', 1, 'pub', 'ConfiguraÃ§Ã£o de um servidor de Banco de Dados Postgres para o acesso remoto.', 'cenarios/cenario7'),
-(8, 'Teste 02 - TCP-IP', 1, 'pub', 'CenÃ¡rio para a configuraÃ§Ã£o de configuraÃ§Ã£o de rotas e encaminhamento de pacotes.', 'cenarios/cenario8'),
-(9, 'Teste 03 - SeguranÃ§a', 1, 'pub', 'CenÃ¡rio para configuraÃ§Ã£o de regras do iptables.', 'cenarios/cenario9');
+(1, 'CenÃ¡rio 1', 1, 'pub', 'CenÃ¡rio simples para prÃ¡tica em uma mÃ¡quina', 'cenarios/cenario1'),
+(2, 'CenÃ¡rio 2', 1, 'pub', 'Esse cenÃ¡rio contem trÃªs mÃ¡quinas e objetivo Ã© configurar o encaminhamento de pacotes na maquina Gateway', 'cenarios/cenario2'),
+(3, 'Teste 01 - Banco de Dados', 1, 'pub', 'ConfiguraÃ§Ã£o de um servidor de Banco de Dados Postgres para o acesso remoto.', 'cenarios/cenario3'),
+(4, 'Teste 02 - TCP-IP', 1, 'pub', 'CenÃ¡rio para a configuraÃ§Ã£o de configuraÃ§Ã£o de rotas e encaminhamento de pacotes.', 'cenarios/cenario4'),
+(5, 'Teste 03 - SeguranÃ§a', 1, 'pub', 'CenÃ¡rio para configuraÃ§Ã£o de regras do iptables.', 'cenarios/cenario5'),
+(6, 'CenÃ¡rio 1', 1, 'priv', 'CenÃ¡rio simples para prÃ¡tica em uma mÃ¡quina', 'cenarios/cenario6'),
+(7, 'CenÃ¡rio 1', 1, 'priv', 'CenÃ¡rio simples para prÃ¡tica em uma mÃ¡quina', 'cenarios/cenario7'),
+(8, 'Aaaa', 1, 'pub', 'addvsvsdvsvdvsd', 'cenarios/cenario8');
 
 -- --------------------------------------------------------
 
@@ -111,13 +114,17 @@ INSERT INTO `maquina` (`id`, `id_cenario`, `nome`, `imagem`) VALUES
 (2, 2, 'Gateway', 'dvl_ubuntu_completo:1.0'),
 (3, 2, 'Maquina01', 'dvl_ubuntu_completo:1.0'),
 (4, 2, 'Maquina02', 'dvl_ubuntu_completo:1.0'),
-(5, 7, 'Servidor', 'dvl_bd_servidor:1.0	'),
-(6, 7, 'Cliente', 'dvl_bd_cliente:1.0	'),
-(7, 8, 'Firewall', 'dvl_tcpip_servidor:1.0'),
-(8, 8, 'Cliente01', 'dvl_tcpip_cliente:1.0'),
-(9, 8, 'Cliente02', 'dvl_tcpip_cliente:1.0'),
-(10, 9, 'firewall', 'dvl_seguranca_servidor:1.0'),
-(11, 9, 'cliente', 'dvl_seguranca_cliente:1.0');
+(5, 3, 'Servidor', 'dvl_bd_servidor:1.0	'),
+(6, 3, 'Cliente', 'dvl_bd_cliente:1.0	'),
+(7, 4, 'Firewall', 'dvl_tcpip_servidor:1.0'),
+(8, 4, 'Cliente01', 'dvl_tcpip_cliente:1.0'),
+(9, 4, 'Cliente02', 'dvl_tcpip_cliente:1.0'),
+(10, 5, 'firewall', 'dvl_seguranca_servidor:1.0'),
+(11, 5, 'cliente', 'dvl_seguranca_cliente:1.0'),
+(12, 6, 'Maquina', 'dvl_ubuntu_completo:1.0'),
+(13, 7, 'Maquina', 'dvl_ubuntu_completo:1.0'),
+(15, 8, 'cliente', 'dvl'),
+(16, 8, 'servidor', 'dvl');
 
 -- --------------------------------------------------------
 
@@ -151,6 +158,7 @@ INSERT INTO `redes` (`id`, `nome`, `tipo`) VALUES
 
 CREATE TABLE `usuarios` (
   `id` bigint(20) UNSIGNED NOT NULL,
+  `tipo` varchar(20) NOT NULL,
   `login` varchar(50) NOT NULL,
   `senha` varchar(30) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
@@ -159,10 +167,9 @@ CREATE TABLE `usuarios` (
 -- Fazendo dump de dados para tabela `usuarios`
 --
 
-INSERT INTO `usuarios` (`id`, `login`, `senha`) VALUES
-(1, 'root', 'root'),
-(2, 'walafi', 'H87PX52'),
-(3, 'professor', 'professorufc123');
+INSERT INTO `usuarios` (`id`, `tipo`, `login`, `senha`) VALUES
+(1, 'master', 'root', 'root'),
+(2, 'comum', 'walafi', 'H87PX52');
 
 --
 -- Índices de tabelas apagadas
@@ -212,7 +219,7 @@ ALTER TABLE `usuarios`
 -- AUTO_INCREMENT de tabela `cenarios`
 --
 ALTER TABLE `cenarios`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 --
 -- AUTO_INCREMENT de tabela `containers`
 --
@@ -227,17 +234,17 @@ ALTER TABLE `imagens`
 -- AUTO_INCREMENT de tabela `maquina`
 --
 ALTER TABLE `maquina`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=68;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=17;
 --
 -- AUTO_INCREMENT de tabela `redes`
 --
 ALTER TABLE `redes`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
 --
 -- AUTO_INCREMENT de tabela `usuarios`
 --
 ALTER TABLE `usuarios`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
