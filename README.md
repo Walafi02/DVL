@@ -86,7 +86,7 @@ OBS.: A qualquer momento a senha do banco de dados será requitada.
 Para a instalação do docker, pode-se optar pela execulção de um script installDocker.sh, no diretorio arquivos do projeto, para isso é mecessario dá ao mesmo permissão de execulção e logo apos execulta-lo:
 ```
 $ cd arquivos
-$ chmod 764 installDocker.sh 	-u
+$ chmod 764 installDocker.sh
 $ sudo ./installDocker.sh
 ```
 
