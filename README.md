@@ -36,7 +36,7 @@ O proximo passo será alterar a pasta padrão do apache nos seguintes arquivos:
 
 Altera de:
 <pre>
-\<Directory /var/www/html/>
+&lsaquo;Directory /var/www/html/&rsaquo;
 	Options Indexes FollowSymLinks
    	AllowOverride All
    	Require all granted
@@ -48,7 +48,7 @@ Para:
 	Options Indexes FollowSymLinks
 	AllowOverride All
 	Require all granted
-<\/Directory>
+</Directory>
 </pre>
 - 2º Arquivo: 000-default.conf, no diretorio /etc/apache2/sites-available:
 <pre>
