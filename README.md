@@ -13,8 +13,9 @@ Este tutorial contempla a instalação da ferramenta Docker Virtual Lab(DVL), um
 
 ### Passo 1º: Projeto
 Para se inicia o processo de instalação do DVL é necessario importar o projeto direto do github no diretorio a escolha do usuário:
+<pre>
 	$ git clone https://github.com/Walafi02/DVL.git
-
+</pre>
 ### Passo 2º: LAMP
 Pacotes necessários para a instalação do LAMP:
 	$ sudo apt-get install -y apache2
