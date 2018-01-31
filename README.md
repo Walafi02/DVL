@@ -35,13 +35,13 @@ O proximo passo será alterar a pasta padrão do apache nos seguintes arquivos:
 	$ sudo nano /etc/apache2/apache2.conf
 
 Altera de:
-'''
+```
 <Directory /var/www/html/>
 	Options Indexes FollowSymLinks
    	AllowOverride All
    	Require all granted
 </Directory>
-'''
+```
 Para:
 <pre>
 <Directory /<Caminho Completo do Diretorio do Projeto>/>
