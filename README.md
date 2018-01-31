@@ -28,7 +28,13 @@ $ sudo a2enmod rewrite
 $ sudo service apache2 restart
 ```
 
-_**Obs.:** Neste processo será pedido ao usuário uma senha referente a senha de acesso do banco de dados MySql. É de extrema importância que a senha seja atualizada no arquivo conexao.php, no diretório busca_banco, na variavel $pass._
+_**Obs.:** Neste processo será pedido ao usuário uma senha referente a senha de acesso do banco de dados MySql. É de extrema importância que a senha seja atualizada no arquivo conexao.php, no diretório busca_banco, na variavel $pass e no arquivo addUserProf.py, no diretório arquivos, na variavel self.passwd. Ou se preferir dê permissão de execução ao Script senhaBD.py no diretorio arquivos, e executio que o mesmo irá requisitar a senha do banco de dados, verificar se a mesma é valida e alterar nos arquivos necessários:_
+
+```
+$ cd DVL/arquivos
+$ chmod 764 senhaBD.py
+$ sudo ./senhaBD.py
+```
 
 - O próximo passo será alterar a pasta padrão do apache nos seguintes arquivos:
 1º Arquivo: apache2.conf, no diretorio /etc/apache2:
@@ -77,7 +83,6 @@ mysql> quit;
 
 Importe o Banco
 ```
-$ cd DVL/arquivos
 $ mysql -u root -p cadastro < cadastro.sql
 ```
 
