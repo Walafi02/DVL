@@ -23,7 +23,7 @@ $ git clone https://github.com/Walafi02/DVL.git
 $ sudo apt-get install -y apache2
 $ sudo service apache2 restart
 $ sudo apt-get install -y php7.0 libapache2-mod-php7.0
-$ sudo apt-get install -y mysql-server php7.0-mysql
+$ sudo apt-get install -y mysql-server php7.0-mysql python-mysqldb
 $ sudo a2enmod rewrite
 $ sudo service apache2 restart
 ```
@@ -171,4 +171,5 @@ $ sudo chown www-data.www-data -R DVL
 
 ## Utilizando a ferramenta
 
-Para fazer uso da ferramenta é necessário iniciar um browser, de preferência Chrome, e acessar o IP do servidor. Mais informações de uso da ferramenta estarão disponíveis [neste link](https://www.google.com.br/).
+Para fazer uso da ferramenta é necessário iniciar um browser, de preferência Chrome, e acessar o IP do servidor. Mais informações sobre o uso da ferramenta estarão disponíveis [neste link](https://www.google.com.br/).
+
