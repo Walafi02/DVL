@@ -36,7 +36,7 @@ O proximo passo será alterar a pasta padrão do apache nos seguintes arquivos:
 
 Altera de:
 <pre>
-&lsaquo;Directory /var/www/html/&rsaquo;
+'<'Directory /var/www/html/'>'
 	Options Indexes FollowSymLinks
    	AllowOverride All
    	Require all granted
