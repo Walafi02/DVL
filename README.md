@@ -168,3 +168,7 @@ $ sudo chmod 764 add.sh
 $ cd ../..
 $ sudo chown www-data.www-data -R DVL
 ```
+
+## Utilizando a ferramenta
+
+Para fazer uso da ferramenta é necessário iniciar um browser, de preferência Chrome, e acessar o IP do servidor. Mais informações de uso da ferramenta estarão disponíveis [neste link](https://www.google.com.br/).
