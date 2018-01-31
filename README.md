@@ -36,11 +36,11 @@ O proximo passo será alterar a pasta padrão do apache nos seguintes arquivos:
 
 Altera de:
 <pre>
-<Directory /var/www/html/>
+\<Directory /var/www/html/>
 	Options Indexes FollowSymLinks
    	AllowOverride All
    	Require all granted
-<\/Directory>
+</Directory>
 </pre>
 Para:
 <pre>
