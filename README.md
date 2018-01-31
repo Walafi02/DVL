@@ -18,7 +18,7 @@ $ git clone https://github.com/Walafi02/DVL.git
 ```
 
 ### Passo 2: LAMP
-Pacotes necessários para a instalação do LAMP:
+- Pacotes necessários para a instalação do LAMP:
 ```
 $ sudo apt-get install -y apache2
 $ sudo service apache2 restart
@@ -28,10 +28,10 @@ $ sudo a2enmod rewrite
 $ sudo service apache2 restart
 ```
 
-_**Obs.:** Neste processo será pedido ao usuário uma senha referente a senha de acesso do banco de dados MySql. É de extrema importância que a senha seja atualizada no arquivo conexao.php, no diretorio busca_banco, na variavel $pass._
+_**Obs.:** Neste processo será pedido ao usuário uma senha referente a senha de acesso do banco de dados MySql. É de extrema importância que a senha seja atualizada no arquivo conexao.php, no diretório busca_banco, na variavel $pass._
 
-O proximo passo será alterar a pasta padrão do apache nos seguintes arquivos:
-- 1º Arquivo: apache2.conf, no diretorio /etc/apache2:
+- O próximo passo será alterar a pasta padrão do apache nos seguintes arquivos:
+1º Arquivo: apache2.conf, no diretorio /etc/apache2:
 	$ sudo nano /etc/apache2/apache2.conf
 
 Altera de:
@@ -50,7 +50,7 @@ Para:
 	Require all granted
 </Directory>
 ```
-- 2º Arquivo: 000-default.conf, no diretorio /etc/apache2/sites-available:
+2º Arquivo: 000-default.conf, no diretório /etc/apache2/sites-available:
 ```
 $ sudo nano /etc/apache2/sites-available/000-default.conf
 ```
@@ -61,10 +61,10 @@ DocumentRoot /var/www/html
 ```
 Para:
 ```
-DocumentRoot /<Caminho Completo do Diretorio do Projeto>
+DocumentRoot /<Caminho Completo do Diretório do Projeto>
 ```
 
-Por fim, a configuração do banco de dados, onde o primerio passo é entrar no servidor mysql:
+- Por fim, a configuração do banco de dados, onde o primerio passo é entrar no servidor MySQL:
 ```
 $ mysql -h localhost -u root -p
 ```
@@ -77,20 +77,20 @@ mysql> quit;
 
 Importe o Banco
 ```
+$ cd DVL/arquivos
 $ mysql -u root -p cadastro < cadastro.sql
 ```
 
-OBS.: A qualquer momento a senha do banco de dados será requitada.
+_**Obs.:** A qualquer momento a senha do banco de dados será requitada._
 
 ### Passo 3: Docker
-Para a instalação do docker, pode-se optar pela execulção de um script installDocker.sh, no diretorio arquivos do projeto, para isso é mecessario dá ao mesmo permissão de execulção e logo apos execulta-lo:
+Para a instalação do docker, pode-se optar pela execução de um script installDocker.sh, no diretório arquivos do projeto, para isso é necessário dá ao mesmo permissão de execução e logo após executá-lo::
 ```
-$ cd arquivos
 $ chmod 764 installDocker.sh
 $ sudo ./installDocker.sh
 ```
 
-ou pode-se optar pela insttalação manual com:
+ou pode-se optar pela instalação manual com:
 ```
 $ sudo apt-get install -y docker.io
 ```
@@ -138,8 +138,14 @@ $ sudo docker network create --driver bridge Rede2
 ```
 
 ### Passo 4: Configurações Finais
-Por final, é necessário:
-- Adicionar os comandos que os usuário da ferramenta poderam execulta com privilegios sem uso de senha. Para isso, configuramos o arquivos sudors, no diretorio /etc:
+Por final, é necessário fazer algumas configurações finais. Para dê permissão de execulção para o Script confFinais.sh e o execulte:
+```
+$ chmod 764 confFinais.sh
+$ sudo ./confFinais.sh
+```
+
+Ou faça as configurações manuair:
+- Adicionando os comandos que os usuário da ferramenta poderam execulta com privilegios sem uso de senha. Para isso, configuramos o arquivos sudors, no diretorio /etc:
 ```
 $ sudo nano /etc/sudors
 ```
@@ -151,14 +157,14 @@ www-data ALL=NOPASSWD:   ALL
        	/usr/bin/docker exec -it * login
 ```
 
-- Mude o dono dos arquivos e diretorios do projeto:
+- Dando permissão de execursão ao arquivo add.sh, no diretorio /users:
+```
+$ cd ../users
+$ sudo chmod 764 add.sh
+```
+
+- Mudedando o dono dos arquivos e diretórios do projeto:
 ```
 $ cd ../..
 $ sudo chown www-data.www-data -R DVL
-```
-
-- Da permissão de execursão ao arquivo add.sh, no diretorio /users:
-```
-$ cd DVL/users
-$ sudo chmod 764 add.sh
 ```
