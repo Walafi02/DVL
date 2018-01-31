@@ -2,22 +2,22 @@
 
 Este tutorial contempla a instalação da ferramenta Docker Virtual Lab(DVL), um gerenciador de containers Docker voltado para o âmbito universitário, onde a mesma disponibiliza Containers Docker para os alunos elaborarem as práticas de laboratórios.
 
-### Softwares necessários:
+### Softwares Necessários:
 - Ubuntu 16.04.3 LTS
 - Docker version 1.13.1
 - Apache2
 - PHP 7.0.22
-- Mysql 5.7.21
+- MySQL 5.7.21
 
 ## Instalação
 
-### Passo 1º: Projeto
-Para se inicia o processo de instalação do DVL é necessario importar o projeto direto do github no diretorio a escolha do usuário:
+### Passo 1: Projeto
+Para se inicia o processo de instalação do DVL é necessário importar o projeto direto do github no diretorio a escolha do usuário:
 ```
 $ git clone https://github.com/Walafi02/DVL.git
 ```
 
-### Passo 2º: LAMP
+### Passo 2: LAMP
 Pacotes necessários para a instalação do LAMP:
 ```
 $ sudo apt-get install -y apache2
@@ -28,7 +28,7 @@ $ sudo a2enmod rewrite
 $ sudo service apache2 restart
 ```
 
-Obs.: Neste processo será pedido ao usuário uma senha referente a senha de acesso do banco de dados MySql. É de extrema importância que a senha seja atualizada no arquivo conexao.php, no diretorio busca_banco, na variavel $pass.
+_Obs.:_ Neste processo será pedido ao usuário uma senha referente a senha de acesso do banco de dados MySql. É de extrema importância que a senha seja atualizada no arquivo conexao.php, no diretorio busca_banco, na variavel $pass.
 
 O proximo passo será alterar a pasta padrão do apache nos seguintes arquivos:
 - 1º Arquivo: apache2.conf, no diretorio /etc/apache2:
@@ -82,7 +82,7 @@ $ mysql -u root -p cadastro < cadastro.sql
 
 OBS.: A qualquer momento a senha do banco de dados será requitada.
 
-### Passo 3º: Docker
+### Passo 3: Docker
 Para a instalação do docker, pode-se optar pela execulção de um script installDocker.sh, no diretorio arquivos do projeto, para isso é mecessario dá ao mesmo permissão de execulção e logo apos execulta-lo:
 ```
 $ cd arquivos
@@ -95,9 +95,39 @@ ou pode-se optar pela insttalação manual com:
 $ sudo apt-get install -y docker.io
 ```
 
-Baixe as imagens e as renomeias:
+Baixe as imagens, renomeias e exclua a imagem antiga:
 ```
-$ sudo ...
+$ sudo docker pull walafi02/dvl-seguranca-cliente
+$ sudo docker tag 591320583f2537352f196c8295aa3b2c83f8a0a91ca2148ee8bccdfac5e430bc dvl-seguranca-cliente:1.0
+$ sudo docker rmi walafi02/dvl-seguranca-cliente
+
+$ sudo docker pull walafi02/dvl-seguranca-servidor
+$ sudo docker tag 88d7f10d6ce488de491d056f03aa727eb5edf2e4a83f19b986d929d13d4a2513 dvl-seguranca-servidor:1.0
+$ sudo docker rmi walafi02/dvl-seguranca-servidor
+
+$ sudo docker pull walafi02/dvl-tcpip-cliente
+$ sudo docker tag 8874008269472fc05a437516739b0274fee168f34b02bc869603e440a568f2b2 dvl-tcpip-cliente:1.0
+$ sudo docker rmi walafi02/dvl-tcpip-cliente
+
+$ sudo docker pull walafi02/dvl-tcpip-servidor
+$ sudo docker tag ecca252589f76c02708269c838e4f202245a27454d6b27a73af10150e5588ffd dvl-tcpip-servidor:1.0
+$ sudo docker rmi walafi02/dvl-tcpip-servidor
+
+$ sudo docker pull walafi02/dvl-bd-cliente
+$ sudo docker tag cd66278431a943816264e2ab7c66e92440c2de70802afb5e56c57dfba790acce dvl-bd-cliente:1.0
+$ sudo docker rmi walafi02/dvl-bd-cliente
+
+$ sudo docker pull walafi02/dvl-bd-servidor
+$ sudo docker tag cd66278431a943816264e2ab7c66e92440c2de70802afb5e56c57dfba790acce dvl-bd-servidor:1.0
+$ sudo docker rmi walafi02/dvl-bd-servidor
+
+$ sudo docker pull walafi02/dvl-ubuntu-base
+$ sudo docker tag 47247bb33fd56bbe9562ccae3254027306e39c6ff8c7ea6a15a0e2ee7b48be6a dvl-ubuntu-base:1.0
+$ sudo docker rmi walafi02/dvl-ubuntu-base
+
+$ sudo docker pull walafi02/dvl-ubuntu-completo
+$ sudo docker tag 2e3d6291161d04829af22035f3f67be08edf81f51925a2e13a59ab4117c31249 dvl-ubuntu-completo:1.0
+$ sudo docker rmi walafi02/dvl-ubuntu-completo
 ```
 
 Crie as redes:
@@ -107,8 +137,8 @@ $ sudo docker network create --driver bridge Rede1
 $ sudo docker network create --driver bridge Rede2
 ```
 
-### Passo 4º: Configurações Finais
-Por final, é necessario:
+### Passo 4: Configurações Finais
+Por final, é necessário:
 - Adicionar os comandos que os usuário da ferramenta poderam execulta com privilegios sem uso de senha. Para isso, configuramos o arquivos sudors, no diretorio /etc:
 ```
 $ sudo nano /etc/sudors
