@@ -38,7 +38,9 @@ $ sudo ./senhaBD.py
 
 - O próximo passo será alterar a pasta padrão do apache nos seguintes arquivos:
 1º Arquivo: apache2.conf, no diretorio /etc/apache2:
-	$ sudo nano /etc/apache2/apache2.conf
+```
+$ sudo nano /etc/apache2/apache2.conf
+```
 
 Altera de:
 ```
