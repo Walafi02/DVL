@@ -178,3 +178,11 @@ $ sudo chown www-data.www-data -R DVL
 
 Para fazer uso da ferramenta é necessário iniciar um browser, de preferência Chrome, e acessar o IP do servidor. Mais informações sobre o uso da ferramenta estarão disponíveis [neste link](https://www.google.com.br/).
 
+Para adicionar seu proprio usuário execulte o Script addUserProf.py, no diretorio arquivos, dando permissão de execulção ao mesmo:
+```
+$ cd DVL/arquivos
+$ chmod 764 addUserProf.py
+$ sudo ./addUserProf.py
+```
+
+Apos isso a ferramenta está pronta para o uso.
