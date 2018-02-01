@@ -9,7 +9,7 @@ while True:
  	passwd = getpass.getpass('Senha: ')
 
  	try:
- 		conexao = MySQLdb.connect("localhost", "root", passwd, "cadastro")
+ 		conexao = MySQLdb.connect("localhost", "root", passwd, "mysql")
  		conexao.close()
 
 		os.system("sed -ie \"s/\$pass =.*/\$pass = \\\"%s\\\";/g\" ../busca_banco/conexao.php" % (passwd))
