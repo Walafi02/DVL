@@ -90,6 +90,11 @@ $ mysql -u root -p cadastro < cadastro.sql
 
 _**Obs.:** A qualquer momento a senha do banco de dados será requitada._
 
+- Restarta o servidor Apache:
+```
+sudo service apache2 restart
+```
+
 ### Passo 3: Docker
 Para a instalação do docker, pode-se optar pela execução de um script installDocker.sh, no diretório arquivos do projeto, para isso é necessário dá ao mesmo permissão de execução e logo após executá-lo::
 ```
@@ -178,7 +183,7 @@ $ sudo chown www-data.www-data -R DVL
 
 ## Utilizando a ferramenta
 
-Para fazer uso da ferramenta é necessário iniciar um browser, de preferência Chrome, e acessar o IP do servidor. Mais informações sobre o uso da ferramenta estarão disponíveis [neste link](https://www.google.com.br/).
+Para fazer uso da ferramenta é necessário iniciar um browser, de preferência Chrome, e acessar o IP do servidor. Mais informações sobre o uso da ferramenta estarão disponíveis [aqui](https://www.google.com.br/).
 
 Para adicionar seu proprio usuário execulte o Script addUserProf.py, no diretorio arquivos, dando permissão de execulção ao mesmo:
 ```
