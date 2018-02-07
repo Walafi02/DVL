@@ -183,7 +183,7 @@ $ sudo chown www-data.www-data -R DVL
 
 ## Utilizando a ferramenta
 
-Para fazer uso da ferramenta é necessário iniciar um browser, de preferência Chrome, e acessar o IP do servidor. Mais informações sobre o uso da ferramenta estarão disponíveis [aqui](https://www.google.com.br/).
+Para fazer uso da ferramenta é necessário iniciar um browser, de preferência Chrome, e acessar o IP do servidor. Mais informações sobre o uso da ferramenta estarão disponíveis [aqui](https://www.dropbox.com/s/lhrgwlskt2nyngy/TCC2WalafiFerreira.pdf?dl=0).
 
 Para adicionar seu proprio usuário execulte o Script addUserProf.py, no diretorio arquivos, dando permissão de execulção ao mesmo:
 ```
