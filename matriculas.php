@@ -14,8 +14,7 @@
 
 	$login = $_SESSION["login"];
 
-//echo $_SESSION['id_cenario'];
-
+	if ($_POST['id_ce']) $_SESSION['id_cenario'] = $_POST['id_ce'];
 
 	$id_cenario = $_POST['id_ce'];
 
