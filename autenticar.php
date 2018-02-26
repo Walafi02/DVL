@@ -20,6 +20,8 @@
 
 	mysqli_close($conexao);
 
+	if (!is_dir("executar")) mkdir("executar");
+	if (!is_dir("matriculas")) mkdir("matriculas");
 ?>
 
 <!DOCTYPE html>
