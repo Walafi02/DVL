@@ -1,2 +1,0 @@
-ScriptConecta $2 Conecta$Maquina $Maquina 
-

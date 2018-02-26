@@ -1,4 +1,0 @@
-ScriptConecta $2 Conecta$cliente $cliente 
-
-ScriptConecta $2 Conecta$servidor $servidor 
-

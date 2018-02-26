@@ -1,3 +1,0 @@
-sudo docker run --privileged -itd -h $Maquina --name $Maquina dvl-ubuntu-completo:1.0
-
-
