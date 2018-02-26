@@ -62,7 +62,8 @@
 		<link rel="stylesheet" type="text/css" href="css/estilo.css">
 
 		<script	type="text/javascript"	src="css/jquery.min.js"></script>
-		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+		<script src="js/bootstrap.min.js"></script>
+		<!-- <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script> -->
 
 		<style type="text/css">
 			fieldset {
