@@ -21,6 +21,7 @@ git clone https://github.com/Walafi02/DVL.git
 ### Passo 2: LAMP
 - Pacotes necessários para a instalação do LAMP:
 ```
+apt-get update
 apt-get install -y apache2
 service apache2 restart
 apt-get install -y php7.0 libapache2-mod-php7.0 mysql-server php7.0-mysql python-mysqldb
