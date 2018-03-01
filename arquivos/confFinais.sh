@@ -9,7 +9,8 @@ sudo echo "www-data        ALL=NOPASSWD:\\
                         /usr/bin/passwd,\\
                         /bin/rm senhas.txt,\\
                         /bin/chmod,\\
-                        /bin/mv" >> /etc/sudoers
+                        /bin/mv,\\
+                        /bin/touch" >> /etc/sudoers
 
 sudo echo "%alunos		ALL=NOPASSWD:\\
 			/usr/bin/docker exec -it * login" >> /etc/sudoers
