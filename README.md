@@ -162,17 +162,7 @@ nano /etc/sudors
 
 No final do arquivo adiciona as seguintes linhas de código:
 ```
-www-data	ALL=NOPASSWD: \
-            /usr/bin/docker,
-            /usr/sbin/addgroup,
-            /usr/sbin/useradd,
-            /bin/echo *,
-            /usr/sbin/chpasswd,
-            /usr/bin/passwd,
-            /bin/rm senhas.txt,
-            /bin/chmod,
-            /bin/mv,
-            /bin/touch
+www-data	ALL=NOPASSWD: ALL
 %alunos ALL=NOPASSWD: \
        	/usr/bin/docker exec -it * login
 ```
