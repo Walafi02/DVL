@@ -192,5 +192,5 @@ cd DVL/arquivos
 Apos isso a ferramenta está pronta para o uso.
 
 ### Vídoes
-Vídeo para a o passo a passo a instalação da ferramenta [aqui](https://youtu.be/eRcBf8hG98w) 
-Vídeo para demonstrar as funcionalidades da ferramenta [aqui](https://youtu.be/um97ebPY8Io)
+- Vídeo para a o passo a passo a instalação da ferramenta [aqui](https://youtu.be/eRcBf8hG98w) 
+- Vídeo para demonstrar as funcionalidades da ferramenta [aqui](https://youtu.be/um97ebPY8Io)
