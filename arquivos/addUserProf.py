@@ -3,6 +3,7 @@
 import os
 import MySQLdb
 import getpass
+import hashlib
 
 class Banco:
 	def __init__(self):
@@ -20,7 +21,7 @@ class Banco:
 		return len(self.cursor.fetchall())
 
 	def add(self, login, senha):
-		self.cursor.execute("INSERT INTO usuarios (tipo, login, senha) VALUES ('comum', '%s', '%s');" % (login, senha))
+		self.cursor.execute("INSERT INTO usuarios (tipo, login, senha) VALUES ('comum', '%s', '%s');" % (login, hashlib.md5(senha).hexdigest()))
 		self.conexao.commit()
 
 	def close(self):

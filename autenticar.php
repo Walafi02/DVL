@@ -5,7 +5,7 @@
 	include('busca_banco/conexao.php');
 
 	$login = $_POST['login'];
-	$senha = $_POST['senha'];
+	$senha = md5($_POST['senha']);
 
 	$query = "SELECT * FROM usuarios WHERE login = '$login' and senha = '$senha'";
 

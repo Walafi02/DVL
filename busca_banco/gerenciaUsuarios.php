@@ -22,7 +22,7 @@
 		case 'addUsuario':
 			$nome = $_POST['nome'];
 			$tipo = $_POST['tipo'];
-			$senha = $_POST['senha'];
+			$senha = md5($_POST['senha']);
 			
 			$sql = "SELECT * FROM usuarios WHERE login = '$nome'";
 			$query = mysqli_query($conexao, $sql);
