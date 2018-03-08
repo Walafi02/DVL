@@ -15,7 +15,6 @@ class Banco:
 		self.conexao = MySQLdb.connect(self.host, self.user, self.passwd, self.bd)
 		self.cursor = self.conexao.cursor()
 
-
 	def verifica(self, login):
 		self.cursor.execute("SELECT * FROM usuarios WHERE login = '%s'" % (login))
 		return len(self.cursor.fetchall())
