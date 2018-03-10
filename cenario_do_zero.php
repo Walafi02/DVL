@@ -319,8 +319,43 @@ function ScriptConecta {
 				<h4 class="modal-title" id="myModalLabel">Ajuda</h4>
 			</div>
 			
-			<div class="modal-body text-center">
-				....
+			<div class="modal-body" style="text-align: left;">
+
+<h3><b>Máquinas</b></h3>
+
+	<li style="text-indent: 2em">Adicicionar Maquina</li>
+
+		<p align="justify" style="margin-left: 75px;">Para adicionar uma máquina é necessário ir em <i>Containers</i> > <i>Adicionar Container</i>, preencher o formulário com as informações necessárias, logo após clique em <i>Add</i> para adicionar.</p>
+
+	<li style="text-indent: 2em">Remover Maquina</li>
+
+		<p align="justify" style="margin-left: 75px;">Para deletar uma máquina é necessário ir em <i>Containers</i>, verificar qual máquina que deletar e clicar em <i>deletar</i>.</p>
+
+<h3><b>Redes</b></h3>
+
+	<li style="text-indent: 2em">Listar Redes</li>	
+		<p align="justify" style="margin-left: 75px;">Para verificar as redes existentes clique no botão <i>Redes</i>.</p>
+
+	<li style="text-indent: 2em">Adicionar um nova Rede</li>
+		<p align="justify" style="margin-left: 75px;">Para adicionar uma nova rede vá em <i>redes</i> > <i>adicionar rede</i>, preencher o formulário e clicar em <i>add</i>.</p>
+
+	<li style="text-indent: 2em">Associar Rede a uma máquina</li>
+		<p align="justify" style="margin-left: 75px;">Para associar uma rede a uma máquina:</p>
+		<p style="margin-left: 100px;"><i>sudo docker network connect &lt;rede&gt; &lt;máquina&gt;</i></p>
+
+<h3><b>Comandos Úteis</b></h3>
+	<li style="text-indent: 2em">Capturar IP da Gatewall de Uma rede</li>
+		<p style="margin-left: 75px;"><i>IP=$(sudo docker inspect -f '{{ .NetworkSettings.Networks.&lt;Rede&gt;.Gateway }}' &lt;maquina&gt;)</i></p>
+
+	<li style="text-indent: 2em">Capturar IP uma Maquina</li>
+		<p style="margin-left: 75px;"><i>IP=$(sudo docker inspect -f '{{ .NetworkSettings.Networks.&lt;Rede&gt;.IPAddress }}' &lt;maquina&gt;)</i></p>
+
+	<li style="text-indent: 2em">Remover Acesso a Rede</li>
+		<p style="margin-left: 75px;"><i>sudo docker exec &lt;firewall&gt; route del default gw &lt;IPGatewall&gt;</i></p>
+
+	<li style="text-indent: 2em">Adiconar nova rota</li>
+		<p style="margin-left: 75px;"><i>sudo docker exec &lt;firewall&gt; route add default gw &lt;ipServidor&gt; eth1</i></p>
+
 			</div>
 
 			<div class="modal-footer">
