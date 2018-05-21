@@ -49,7 +49,7 @@ switch ($acao) {
 //shell_exec("echo aaa > /tmp/saida.txt");
 //		shell_exec("touch matriculas/matriculas_$login.txt");
 
-		if (!shell_exec("grep '^$text\$' matriculas/matriculas_$login.txt")) {
+		if (!shell_exec("grep '^$text\$' matriculas/matriculas_$login.txt") && is_numeric($text)) {
 			$mat = fopen("matriculas/matriculas_$login.txt", "a");
 			$escreve = fwrite($mat, "$text\n");
 			fclose($mat);
@@ -73,13 +73,17 @@ switch ($acao) {
 
 	case 'Finalizar':
 		//add no banco
+		if(filesize("matriculas/matriculas_$login.txt") > 0){
+
 			AddBanco($login, $id_cenario);
 
 			//executa e atualiza no banco
 			shell_exec("php executa.php $login 2>/dev/null >/dev/null &");
 
 			header("Location: cenarios_em_segundo_plano.php");
-		//	exit;.
+		}else{
+			header("Location: matriculas.php");
+		}
 		break;
 
 	default:

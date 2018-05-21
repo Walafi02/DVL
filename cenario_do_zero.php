@@ -152,7 +152,7 @@
 		<div class="modal-content">
 			<div class="modal-header">
 				<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-				<h4 class="modal-title" id="myModalLabel">Containers</h4>
+				<h4 class="modal-title" id="myModalLabel">Contêiner</h4>
 			</div>
 			
 			<div class="modal-body text-center">
@@ -208,7 +208,7 @@
 </div>
 
 			<div class="modal-footer">
-				<button type="button" class="btn btn-primary" id="adicionar_container">Adicionar Container</button>
+				<button type="button" class="btn btn-primary" id="adicionar_container">Adicionar Contêiner</button>
 				<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
 			</div>
 		</div>
@@ -325,11 +325,11 @@ function ScriptConecta {
 
 	<li style="text-indent: 2em">Adicicionar Maquina</li>
 
-		<p align="justify" style="margin-left: 75px;">Para adicionar uma máquina é necessário ir em <i>Containers</i> > <i>Adicionar Container</i>, preencher o formulário com as informações necessárias, logo após clique em <i>Add</i> para adicionar.</p>
+		<p align="justify" style="margin-left: 75px;">Para adicionar uma máquina é necessário ir em <i>Contêiners</i> > <i>Adicionar Contêiner</i>, preencher o formulário com as informações necessárias, logo após clique em <i>Add</i> para adicionar.</p>
 
 	<li style="text-indent: 2em">Remover Maquina</li>
 
-		<p align="justify" style="margin-left: 75px;">Para deletar uma máquina é necessário ir em <i>Containers</i>, verificar qual máquina que deletar e clicar em <i>deletar</i>.</p>
+		<p align="justify" style="margin-left: 75px;">Para deletar uma máquina é necessário ir em <i>Contêiners</i>, verificar qual máquina que deletar e clicar em <i>deletar</i>.</p>
 
 <h3><b>Redes</b></h3>
 
@@ -344,17 +344,22 @@ function ScriptConecta {
 		<p style="margin-left: 100px;"><i>sudo docker network connect &lt;rede&gt; &lt;máquina&gt;</i></p>
 
 <h3><b>Comandos Úteis</b></h3>
+	<li style="text-indent: 2em">Macarar pacotes por uma interface</li>
+		<p style="margin-left: 75px;">
+			<i>sudo iptables -I POSTROUTING -t nat -o eth0 -j MASQUERADE</i>
+		</p>
+
 	<li style="text-indent: 2em">Capturar IP da Gatewall de Uma rede</li>
-		<p style="margin-left: 75px;"><i>IP=$(sudo docker inspect -f '{{ .NetworkSettings.Networks.&lt;Rede&gt;.Gateway }}' &lt;maquina&gt;)</i></p>
+		<p style="margin-left: 75px;"><i>IP=$(sudo docker inspect -f "{{ .NetworkSettings.Networks.&lt;Rede&gt;.Gateway }}" &lt;maquina&gt;)</i></p>
 
 	<li style="text-indent: 2em">Capturar IP uma Maquina</li>
-		<p style="margin-left: 75px;"><i>IP=$(sudo docker inspect -f '{{ .NetworkSettings.Networks.&lt;Rede&gt;.IPAddress }}' &lt;maquina&gt;)</i></p>
+		<p style="margin-left: 75px;"><i>IP=$(sudo docker inspect -f "{{ .NetworkSettings.Networks.&lt;Rede&gt;.IPAddress }}" &lt;maquina&gt;)</i></p>
 
 	<li style="text-indent: 2em">Remover Acesso a Rede</li>
-		<p style="margin-left: 75px;"><i>sudo docker exec &lt;firewall&gt; route del default gw &lt;IPGatewall&gt;</i></p>
+		<p style="margin-left: 75px;"><i>sudo docker exec &lt;máquina&gt; route del default gw &lt;IPGatewall&gt;</i></p>
 
 	<li style="text-indent: 2em">Adiconar nova rota</li>
-		<p style="margin-left: 75px;"><i>sudo docker exec &lt;firewall&gt; route add default gw &lt;ipServidor&gt; eth1</i></p>
+		<p style="margin-left: 75px;"><i>sudo docker exec &lt;máquina&gt; route add default gw &lt;ipServidor&gt; eth0</i></p>
 
 			</div>
 
@@ -455,7 +460,7 @@ function ScriptConecta {
 </div>
 
 
-					<button type="button" id="container" class="btn btn-default btn-sm" data-toggle="modal" data-target="#myModal">Container</button>
+					<button type="button" id="container" class="btn btn-default btn-sm" data-toggle="modal" data-target="#myModal">Contêiner</button>
 
 					<button type="button" id="rede" class="btn btn-default btn-sm" data-toggle="modal" data-target="#myModal2">Redes</button>
 					<br>

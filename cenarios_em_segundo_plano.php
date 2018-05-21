@@ -56,7 +56,7 @@
 				            <div class="modal-body">
 				                
 				                <label for="matricula">Matricula</label>
-				    	        <input type="number" name="matricula" id="matricula" autofocus>
+				    	        <input type="text" name="matricula" id="matricula" autofocus onkeypress='return SomenteNumero(event)' maxlength="13" minlength="6">
 				                
 				            </div>
 				          
@@ -193,6 +193,14 @@
 		$.post('busca_banco/add_matricula.php', dados);
 		mostrar();
 		$.post('atualiza.php', dados);
+	}
+	function SomenteNumero(e){
+	    var tecla=(window.event)?event.keyCode:e.which;   
+	    if((tecla>47 && tecla<58)) return true;
+	    else{
+	    	if (tecla==8 || tecla==0) return true;
+		else  return false;
+	    }
 	}
 
 </script>

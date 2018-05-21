@@ -84,7 +84,7 @@
 <?php echo $matr; ?>     						
 </textarea>
 
-    					<input type="number" name="numero" min="0" required placeholder="Nº da Matricula do Aluno" autofocus>
+    					<input type="text" name="numero" maxlength="13" minlength="6" required placeholder="Nº da Matricula do Aluno" autofocus onkeypress='return SomenteNumero(event)'>
     					<br>
     					<input type="submit" class="btn btn-primary btn-lg" name="butao" value="Add">
     					<input type="submit" class="btn btn-danger btn-lg" name="butao" value="Del">
@@ -106,6 +106,14 @@
 <script type="text/javascript">
 	if (document.getElementById('aa').value != "") {
 //		document.getElementById('matri').value = "";
+	}
+	function SomenteNumero(e){
+	    var tecla=(window.event)?event.keyCode:e.which;   
+	    if((tecla>47 && tecla<58) || tecla==13) return true;
+	    else{
+	    	if (tecla==8 || tecla==0) return true;
+		else  return false;
+	    }
 	}
 
 </script>

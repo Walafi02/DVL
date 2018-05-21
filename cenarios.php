@@ -68,6 +68,18 @@
 		<meta charset="utf-8">
 		<link rel="stylesheet" href="css/bootstrap.min.css">
 		<link rel="stylesheet" type="text/css" href="css/estilo.css">
+
+		<style type="text/css">
+			.pointer {
+				cursor: pointer;
+			}
+
+			.not-allowed {
+				cursor: not-allowed;
+			}
+		</style>
+
+
 	</head>
 	
 	<body>
@@ -122,7 +134,7 @@
 		$aa = butao($conexao, $id, $login);
 ?>
 
-								<tr onclick=<?php if ($aa != 0) {echo "\"submeter('form_$id')\"";}else{echo "\"alert('Cenário em uso')\"";}?>>
+								<tr class=<?php if ($aa != 0) { echo "\"pointer\""; }else{ echo "\"not-allowed\"";} ?> onclick=<?php if ($aa != 0) {echo "\"submeter('form_$id')\"";}else{echo "\"alert('Cenário em uso')\"";}?>>
 									<td class="text-center"><h4 title="<?php echo 'Numero do Containers: ' .$num_de_maquinas; ?>" ><?php echo $nome; ?></h4></td>
 									<td class="text-center"><h5><?php echo permissao($permissao); ?></h5></td>
 									<td class="text-center"><h5><?php pertence($conexao, $id, $login); ?></h5></td>
